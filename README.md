@@ -1,6 +1,6 @@
 # Manual de Usuario
 
-*Guía completa para el Generador Automático de Casos de Prueba*
+_Guía completa para el Generador Automático de Casos de Prueba_
 
 ## Introducción
 
@@ -47,12 +47,15 @@ Use el botón "Exportar JSON" para descargar un archivo con todos los casos gene
 ## Tipos de Casos Generados
 
 ### Casos Válidos
+
 Expresiones que siguen correctamente la gramática definida. Son casos normales que la aplicación debería procesar sin problemas.
 
 ### Casos Inválidos
+
 Expresiones válidas que han sido modificadas con mutaciones intencionales para crear errores sintácticos o semánticos.
 
 ### Casos Extremos
+
 Expresiones que prueban los límites del sistema: muy largas, muy profundas, o con combinaciones complejas de operadores.
 
 ## Formato de Gramática
@@ -65,18 +68,23 @@ Las gramáticas deben estar en formato BNF (Backus-Naur Form) con las siguientes
 - Los espacios son ignorados (excepto dentro de terminales)
 
 **Ejemplo:**
+
 ```
 S → a S b | ε
 ```
+
 (Esta gramática genera cadenas como: ε, ab, aabb, aaabbb, etc.)
 
 ## Solución de Problemas
 
 ### Error al cargar gramática
+
 Verifique que el archivo tenga extensión .txt y que la sintaxis BNF sea correcta. Los símbolos no terminales deben comenzar con mayúscula.
 
 ### No se generan casos
+
 Asegúrese de que la gramática esté cargada correctamente y que al menos un tipo de caso tenga un valor mayor a 0.
 
 ### Expresiones muy largas
+
 Reduzca la profundidad máxima o la longitud máxima para obtener expresiones más manejables.
