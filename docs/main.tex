@@ -57,14 +57,17 @@ Proyecto 2. INFO1148, Semestre II-2025}
 
 \section{Resumen}
 
-Este proyecto desarrolla una aplicación web para generar automáticamente casos de prueba válidos, 
-inválidos y extremos a partir de una gramática libre de contexto enfocada en expresiones aritméticas. 
-La herramienta utiliza técnicas de derivación y mutación sintáctica para crear estos casos, permitiendo 
-evaluar el comportamiento de software que procesa expresiones matemáticas. 
-Implementada en Svelte con TypeScript, la aplicación incluye una interfaz intuitiva para cargar gramáticas, 
-configurar parámetros y exportar resultados en formato JSON. 
+Este proyecto aborda el desarrollo de un generador automático de casos de prueba basado en gramáticas libres de contexto, aplicado específicamente al dominio de expresiones aritméticas. La herramienta implementa algoritmos formales que operan sobre estructuras gramaticales para producir conjuntos de cadenas clasificadas según criterios de validez sintáctica y complejidad estructural, facilitando la evaluación sistemática de sistemas de procesamiento de expresiones matemáticas.
 
-\textbf{Palabras clave:} Gramática Libre de Contexto, Generación de Casos de Prueba, Expresiones Aritméticas.
+Desde una perspectiva teórica, el sistema se fundamenta en conceptos clave de la teoría de lenguajes formales. Las gramáticas libres de contexto se utilizan como base para definir lenguajes de expresiones aritméticas, incorporando reglas de producción que capturan la precedencia de operadores, el anidamiento de paréntesis y la composición recursiva. Los algoritmos de derivación generan cadenas válidas mediante la aplicación sistemática de reglas de producción, explorando el espacio de expresiones derivables desde el símbolo inicial.
+
+Para la generación de casos inválidos, se emplean técnicas de mutación sintáctica que introducen errores controlados en cadenas válidas, simulando fallos comunes como operadores faltantes, paréntesis desbalanceados o símbolos mal colocados. Los casos extremos se definen en términos de profundidad máxima del árbol de derivación y longitud de las cadenas, permitiendo probar límites computacionales y detectar vulnerabilidades en implementaciones de parsers.
+
+El sistema incluye un módulo de métricas estadísticas que cuantifica aspectos como la distribución porcentual de tipos de casos, frecuencia de operadores, longitud promedio de expresiones y profundidad máxima alcanzada. Los resultados se exportan en formato estructurado, permitiendo análisis posteriores y comparación de diferentes configuraciones gramaticales.
+
+Esta implementación contribuye al estudio práctico de la teoría de la computación, demostrando cómo conceptos abstractos de lenguajes formales pueden aplicarse en herramientas concretas para testing de software. El enfoque sistemático en expresiones aritméticas permite explorar propiedades algebraicas y sintácticas de manera controlada, proporcionando un marco para la validación de algoritmos de parsing y evaluación.
+
+\textbf{Palabras clave:} Gramática Libre de Contexto, Derivación Sintáctica, Mutación Sintáctica, Casos de Prueba Extremos, Teoría de Lenguajes Formales.
 
 \section{Inicio}
 
