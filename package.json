@@ -7,7 +7,8 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
+		"check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+		"test": "vitest"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -26,7 +27,8 @@
 		"svelte-check": "^4.3.3",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "^8.20.0",
-		"vite": "^7.2.2"
+		"vite": "^7.2.2",
+		"vitest": "^4.0.12"
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.17",
