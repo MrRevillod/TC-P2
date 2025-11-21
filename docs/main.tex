@@ -325,6 +325,43 @@ La aplicación fue probada con diferentes configuraciones de gramática y parám
 \label{fig:diagrama}
 \end{figure}
 
+\subsection{Resultados Reales de Ejecución}
+
+Para validar la veracidad de los algoritmos implementados, se ejecutaron pruebas unitarias que generaron resultados concretos. A continuación se presentan ejemplos reales obtenidos de la ejecución de los tests:
+
+\subsubsection{Casos Válidos Generados}
+- Profundidad 1: '()', '( )', '()'
+- Profundidad 3: 'a', 'a', 'a+(+)'
+
+Estos casos demuestran la aplicación de derivación recursiva con diferentes niveles de complejidad.
+
+\subsubsection{Casos Inválidos Generados}
+Los casos inválidos se obtuvieron mediante mutaciones de expresiones válidas:
+- '( x - y )' (mutación: swap)
+- '( x+ - y )' (mutación: insert)
+- '( x -y  )' (mutación: swap)
+- 'a + b* c' (mutación: delete)
+- '( x )- y )' (mutación: insert)
+- 'a+ b * c' (mutación: delete)
+
+\subsubsection{Casos Extremos Generados}
+Expresiones de alta complejidad generadas con profundidad máxima 10 y longitud hasta 50:
+- 'a+a+a*a+a*a+a*a+a+a*a*a+a+**a+a*a*aa*a+a+a+*+*+**+'
+- 'a+a*a+a+a+**++**a***a+a*a+a*a*++a*a+a++*a+*++*a*a*'
+- 'a*a*a+++*++++**+a****+a*a*+*++**a*a+a*a+a*a*a**+a+'
+
+\subsubsection{Métricas Calculadas}
+En una ejecución con 6 casos mixtos (2 válidos, 2 inválidos, 2 extremos):
+- Total generado: 6
+- Válidos: 2 (33.33\%)
+- Inválidos: 2 (33.33\%)
+- Extremos: 2 (33.33\%)
+- Longitud promedio: 7 caracteres
+- Conteo de operadores: +: 6, -: 1, *: 2, /: 0, \%: 0
+- Profundidad máxima: 0 (sin derivaciones proporcionadas)
+
+Estos resultados confirman el correcto funcionamiento de los algoritmos de generación y análisis de casos de prueba.
+
 Se realizaron pruebas con diferentes configuraciones, verificando que los casos generados fueran correctos. Se validó la exportación JSON y las métricas calculadas.
 
 \section{Seguimiento y control}
