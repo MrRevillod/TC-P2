@@ -44,7 +44,7 @@
 \setstretch{1.0}
 \setlength{\parindent}{0pt}
 
-\title{Gramática de  operaciones aritméticas}
+\title{Generador Automático de Casos de Prueba}
 \author{\small Carlos Riquelme, Luciano Revillod, Benjamin Espinoza  \\
 criquelme2022@alu.uct.cl, lrevillod2022@alu.uct.cl , bespinoza2021@alu.uct.cl \\
 Proyecto 2. INFO1148, Semestre II-2025}
@@ -187,35 +187,42 @@ Se identificaron los siguientes riesgos potenciales y sus estrategias de mitigac
 
 \subsubsection{Marco teórico}
 
-En el contexto de la Teoría de la Computación, las gramáticas formales permiten definir lenguajes de manera precisa. Una Gramática Libre de Contexto (GLC) es un tipo de gramática donde las reglas de producción tienen la forma A → α, donde A es un símbolo no terminal y α es una cadena de símbolos terminales y no terminales. Estas gramáticas generan lenguajes que pueden ser reconocidos por autómatas de pila.
+En el contexto de la Teoría de la Computación, las gramáticas formales permiten definir lenguajes de manera precisa \cite{hopcroft2006automata}. Una Gramática Libre de Contexto (GLC) es un tipo de gramática donde las reglas de producción tienen la forma A → α, donde A es un símbolo no terminal y α es una cadena de símbolos terminales y no terminales \cite{geeksforgeeks_cfg}. Estas gramáticas, introducidas formalmente por Chomsky \cite{contextfree}, generan lenguajes que pueden ser reconocidos por autómatas de pila.
 
-El proyecto aplica estos conceptos para generar casos de prueba sistemáticos para software que procesa expresiones aritméticas. Esto incluye operaciones como suma (+), resta (-), multiplicación (*), división (/), y módulo (\%). La generación de casos inválidos se realiza mediante mutaciones sintácticas, introduciendo errores controlados en cadenas válidas para simular errores comunes.
+El proyecto aplica estos conceptos para generar casos de prueba sistemáticos para software que procesa expresiones aritméticas. Esto incluye operaciones como suma (+), resta (-), multiplicación (*), división (/), y módulo (\%). La generación de casos inválidos se realiza mediante mutaciones sintácticas, una técnica derivada del testing de mutación \cite{mutation_testing}, introduciendo errores controlados en cadenas válidas para simular errores comunes.
 
 \subsubsection{Fundamentos teóricos}
 
-Una GLC se define como una tupla G = (V, Σ, P, S), donde:
+Una GLC se define formalmente como una tupla G = (V, Σ, P, S) \cite{aho2006compilers}, donde:
 - V es el conjunto de símbolos (terminales y no terminales)
 - Σ es el alfabeto de símbolos terminales
 - P es el conjunto de reglas de producción
 - S es el símbolo inicial
 
-Para expresiones aritméticas, definimos una gramática que incluye precedencia de operadores y paréntesis. La derivación comienza desde S y aplica reglas hasta obtener una cadena terminal.
+\textbf{Derivación} es el proceso fundamental mediante el cual se generan cadenas válidas aplicando reglas de producción de manera secuencial \cite{wikipedia_derivation}. Para expresiones aritméticas, definimos una gramática que incluye precedencia de operadores y paréntesis, siguiendo las convenciones estándar de parsing \cite{tutorialspoint_parsing}. La derivación comienza desde S y aplica reglas hasta obtener una cadena terminal.
 
-Los casos extremos se generan aplicando criterios de profundidad máxima del árbol sintáctico o longitud máxima de la cadena. Las mutaciones incluyen eliminación de símbolos, inserción de símbolos inválidos, o cambio de orden.
+El \textbf{árbol sintáctico} o parse tree representa gráficamente el proceso de derivación, donde los nodos internos corresponden a símbolos no terminales y las hojas a símbolos terminales \cite{baeldung_parse_tree}. Este árbol captura la estructura jerárquica de la expresión generada.
+
+La \textbf{mutación sintáctica} se basa en principios del mutation testing \cite{mutation_testing}, aplicando transformaciones como eliminación de símbolos, inserción de símbolos inválidos, intercambio de posiciones, o duplicación de elementos. Los casos extremos se generan aplicando criterios de profundidad máxima del árbol sintáctico o longitud máxima de la cadena, explorando los límites computacionales del sistema de parsing.
+
+La implementación utiliza notación BNF (Backus-Naur Form) para especificar las reglas gramaticales \cite{stackoverflow_bnf}, facilitando el parsing automático y la generación sistemática de casos de prueba \cite{test_case_generation}.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|c|}
+\begin{tabular}{|l|c|c|}
 \hline
-\textbf{Concepto} & \textbf{Descripción} \\
+\textbf{Concepto} & \textbf{Descripción} & \textbf{Referencia} \\
 \hline
-Derivación & Proceso de aplicar reglas para generar cadenas válidas \\
-Mutación sintáctica & Introducción de errores controlados en cadenas válidas \\
-Árbol sintáctico & Representación gráfica de la derivación \\
-Casos extremos & Cadenas con máxima complejidad o longitud \\
+Gramática Libre de Contexto & Formalismo para definir lenguajes & \cite{contextfree} \\
+Derivación & Proceso de aplicar reglas para generar cadenas válidas & \cite{wikipedia_derivation} \\
+Mutación sintáctica & Introducción de errores controlados en cadenas válidas & \cite{mutation_testing} \\
+Árbol sintáctico & Representación gráfica de la derivación & \cite{baeldung_parse_tree} \\
+Casos extremos & Cadenas con máxima complejidad o longitud & \cite{test_case_generation} \\
+Notación BNF & Metalenguaje para describir gramáticas formales & \cite{stackoverflow_bnf} \\
+Parsing & Análisis sintáctico de cadenas según una gramática & \cite{tutorialspoint_parsing} \\
 \hline
 \end{tabular}
-\caption{Conceptos fundamentales del proyecto}
+\caption{Conceptos fundamentales del proyecto con referencias teóricas}
 \label{tab:conceptos}
 \end{table}
 
