@@ -15,7 +15,7 @@
 			onclick={onNavigateToManual}
 			class="rounded-md border border-black bg-black px-4 py-2 font-bold text-white transition-colors hover:bg-gray-800"
 		>
-			📖 Manual
+			Ir al Manual de Usuario
 		</button>
 	</div>
 	<p class="font-body mt-4 text-sm text-gray-500">

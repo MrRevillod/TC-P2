@@ -10,7 +10,7 @@
 						window.dispatchEvent(new CustomEvent("navigate", { detail: "home" }))}
 					class="rounded-md border border-black bg-black px-4 py-2 font-bold text-white transition-colors hover:bg-gray-800"
 				>
-					← Volver al Generador
+					Volver al Inicio
 				</button>
 			</div>
 			<p class="font-body text-lg italic text-gray-700">
